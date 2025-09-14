@@ -70,17 +70,14 @@ const ContactForm = memo(
     state: InquiryState;
     onAlertOpen: () => void;
   }) => {
-    const handleSubmit = (e: React.FormEvent) => {
-      if (!formData.isAgreed) {
-        e.preventDefault();
-        onAlertOpen();
-        return;
-      }
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const formDataObj = new FormData(e.currentTarget);
+      formAction(formDataObj);
     };
 
     return (
       <form
-        action={formAction}
         onSubmit={handleSubmit}
         className="flex flex-col gap-4"
       >
@@ -173,7 +170,6 @@ const ContactForm = memo(
           <div className="hover:scale-110 active:scale-95 transition-transform duration-200">
             <Checkbox
               id="privacy-agreement"
-              name="isAgreed"
               checked={formData.isAgreed}
               onCheckedChange={(checked) =>
                 setFormData((prev) => ({
@@ -190,6 +186,8 @@ const ContactForm = memo(
           >
             개인정보 수집 및 이용 동의
           </label>
+          {/* Hidden input to include checkbox value in FormData */}
+          <input type="hidden" name="isAgreed" value={formData.isAgreed ? "on" : "off"} />
         </div>
         {state.fieldErrors?.isAgreed && (
           <p className="text-sm text-red-500 -mt-2">
@@ -280,7 +278,16 @@ const FixedContactBanner = () => {
         setShowSuccess(false);
       }, 2000);
     }
-  }, [mobileState.success]);
+    // Update form data with server response to preserve values on validation error
+    if (mobileState.data && !mobileState.success) {
+      setMobileFormData({
+        name: mobileState.data.name || "",
+        phone: mobileState.data.phone || "",
+        message: mobileState.data.message || "",
+        isAgreed: mobileState.data.isAgreed || false,
+      });
+    }
+  }, [mobileState]);
 
   useEffect(() => {
     if (desktopState.success) {
@@ -290,7 +297,16 @@ const FixedContactBanner = () => {
         setShowSuccess(false);
       }, 3000);
     }
-  }, [desktopState.success]);
+    // Update form data with server response to preserve values on validation error
+    if (desktopState.data && !desktopState.success) {
+      setDesktopFormData({
+        name: desktopState.data.name || "",
+        phone: desktopState.data.phone || "",
+        message: desktopState.data.message || "",
+        isAgreed: desktopState.data.isAgreed || false,
+      });
+    }
+  }, [desktopState]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -396,12 +412,32 @@ const FixedContactBanner = () => {
           <div className="flex items-center justify-center gap-[1.3125rem] bg-teal-secondary px-10 py-2">
             {/* Desktop Form */}
             <motion.form
-              action={desktopFormAction}
               onSubmit={(e) => {
-                if (!desktopFormData.isAgreed) {
-                  e.preventDefault();
-                  setShowAlert(true);
+                e.preventDefault();
+
+                // Client-side validation with alerts
+                if (!desktopFormData.name || desktopFormData.name.length < 2) {
+                  alert("이름은 최소 2자 이상이어야 합니다");
+                  return;
                 }
+
+                if (!desktopFormData.phone || !/^010-\d{4}-\d{4}$/.test(desktopFormData.phone)) {
+                  alert("올바른 전화번호 형식이 아닙니다 (예: 010-1234-5678)");
+                  return;
+                }
+
+                if (!desktopFormData.message || desktopFormData.message.length < 10) {
+                  alert("문의 내용은 최소 10자 이상이어야 합니다");
+                  return;
+                }
+
+                if (!desktopFormData.isAgreed) {
+                  alert("개인정보 수집 및 이용에 동의해주세요");
+                  return;
+                }
+
+                const formData = new FormData(e.currentTarget);
+                desktopFormAction(formData);
               }}
               className="flex items-center gap-[1.3125rem]"
             >
@@ -540,7 +576,6 @@ const FixedContactBanner = () => {
                 >
                   <Checkbox
                     id="desktop-privacy-agreement"
-                    name="isAgreed"
                     checked={desktopFormData.isAgreed}
                     onCheckedChange={(checked) =>
                       setDesktopFormData({
@@ -557,6 +592,8 @@ const FixedContactBanner = () => {
                 >
                   개인정보 수집 및 이용 동의
                 </label>
+                {/* Hidden input to include checkbox value in FormData */}
+                <input type="hidden" name="isAgreed" value={desktopFormData.isAgreed ? "on" : "off"} />
               </motion.div>
 
               {/* Submit Button */}

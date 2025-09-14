@@ -28,6 +28,12 @@ export type InquiryState = {
     message?: string[];
     isAgreed?: string[];
   };
+  data?: {
+    name?: string;
+    phone?: string;
+    message?: string;
+    isAgreed?: boolean;
+  };
 };
 
 export async function createInquiry(
@@ -51,17 +57,27 @@ export async function createInquiry(
       data: validatedData,
     });
 
-    return { success: true };
+    return { success: true, data: {} };
   } catch (error) {
+    // Parse form data for returning
+    const rawData = {
+      name: formData.get("name") as string,
+      phone: formData.get("phone") as string,
+      message: formData.get("message") as string,
+      isAgreed: formData.get("isAgreed") === "on",
+    };
+
     if (error instanceof z.ZodError) {
       return {
         fieldErrors: error.flatten().fieldErrors,
+        data: rawData, // Return the data to preserve form values
       };
     }
 
     console.error("Failed to create inquiry:", error);
     return {
       error: "문의 등록 중 오류가 발생했습니다. 다시 시도해주세요.",
+      data: rawData, // Return the data to preserve form values
     };
   }
 }
