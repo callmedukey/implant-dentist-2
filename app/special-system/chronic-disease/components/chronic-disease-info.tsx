@@ -1,7 +1,6 @@
 import * as motion from "motion/react-client";
 import Image from "next/image";
 
-import educationProcessImage from "@/public/images/chronic-disease/education-process-bg.png";
 import treatmentExpertiseImage from "@/public/images/chronic-disease/treatment-expertise-bg.png";
 
 const ChronicDiseaseInfo = () => {
