@@ -14,6 +14,7 @@ import {
 import { type CarouselApi } from "@/components/ui/carousel";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import inside1 from "@/public/inside/1.jpg";
+import inside10 from "@/public/inside/10.jpg";
 import inside2 from "@/public/inside/2.jpg";
 import inside3 from "@/public/inside/3.jpg";
 import inside4 from "@/public/inside/4.jpg";
@@ -22,7 +23,6 @@ import inside6 from "@/public/inside/6.jpg";
 import inside7 from "@/public/inside/7.jpg";
 import inside8 from "@/public/inside/8.jpg";
 import inside9 from "@/public/inside/9.jpg";
-import inside10 from "@/public/inside/10.jpg";
 
 const carouselImages = [
   { id: 1, src: inside1, alt: "조은이플란트치과 대기실" },
