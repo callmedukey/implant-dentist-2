@@ -47,8 +47,8 @@ const dropdownItems: Record<string, Array<{ text: string; href: string }>> = {
     { text: "보험 임플란트", href: "/special-implant#insurance" },
   ],
   "사랑니 발치": [
-    { text: "전문의 직접 발치", href: "/wisdom-tooth#specialist" },
-    { text: "당일 사랑니 발치", href: "/wisdom-tooth#same-day" },
+    { text: "고난이도 사랑니 발치", href: "/wisdom-tooth#specialist" },
+    { text: "사랑니 발치", href: "/wisdom-tooth#same-day" },
   ],
   "턱관절 치료": [
     { text: "턱관절 질환", href: "/jaw-treatment#disease" },
@@ -144,7 +144,7 @@ export default function Header() {
                           "flex items-center justify-center gap-1 px-6 py-2",
                           "text-base font-normal leading-[1.6] text-teal-secondary",
                           "transition-all hover:text-teal-primary duration-300",
-                          "focus:outline-none focus-visible:outline-none"
+                          "focus:outline-none focus-visible:outline-none",
                         )}
                       >
                         {item.text}
@@ -165,7 +165,7 @@ export default function Header() {
                               "flex items-center justify-center px-6 py-2 rounded-md",
                               "text-base font-normal leading-[1.6] text-teal-secondary",
                               "transition-all hover:text-teal-primary hover:bg-dark-secondary/50",
-                              "cursor-pointer"
+                              "cursor-pointer",
                             )}
                           >
                             {dropdownItem.text}
@@ -180,7 +180,7 @@ export default function Header() {
                     className={cn(
                       "flex items-center justify-center gap-2 px-6 py-2",
                       "text-base font-normal leading-[1.6] text-teal-secondary",
-                      "transition-all hover:text-teal-primary duration-300"
+                      "transition-all hover:text-teal-primary duration-300",
                     )}
                   >
                     {item.text}

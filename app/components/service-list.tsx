@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import boneGraftBg from "@/public/images/bioss.png";
-import biopsyBg from "@/public/images/services/biopsy-bg.webp";
+import biopsyBg from "@/public/images/services/biopsy-bg.png";
 import cavityTreatmentBg from "@/public/images/services/cavity-image.png";
 import digitalImplantBg from "@/public/images/services/digital-implant-bg.png";
 import implantBg from "@/public/images/services/implant-image.png";
@@ -62,11 +62,11 @@ const services = [
   },
   {
     id: 7,
-    title: "조직검사",
-    subtitle1: "구강 연조직 질환을",
-    subtitle2: "멀리 가지 않고도 검사",
+    title: "치아 미백",
+    subtitle1: "맑고 깨끗하게",
+    subtitle2: "오늘보다 더 환한 내일을 위해",
     bgImage: biopsyBg,
-    href: "/integrated-care#soft-tissue",
+    href: "/integrated-care#whitening",
   },
   {
     id: 8,

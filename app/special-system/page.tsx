@@ -10,7 +10,7 @@ import osteoporosisBg from "@/public/images/chronic-disease/osteoporosis-bg.webp
 import sterilizationHeroBg from "@/public/images/sterilization/sterilization-hero-bg.webp";
 import individualToolsImage from "@/public/images/sterilization/sterilization-individual-tools.webp";
 import safeEnvironmentImage from "@/public/images/sterilization/sterilization-safe-environment.webp";
-import sanitizedWaterImage from "@/public/images/sterilization/sterilization-sanitized-water.webp";
+import sanitizedWaterImage from "@/public/images/sterilization/sterilization-sanitized-water.png";
 import decorativeBrackets from "@/public/images/warranty/decorative-brackets.svg";
 import megagenLogo2 from "@/public/images/warranty/megagen-logo.png";
 import osstemLogo1 from "@/public/images/warranty/osstem-logo-1.webp";

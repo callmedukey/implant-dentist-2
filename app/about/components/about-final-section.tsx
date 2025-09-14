@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import arrowIcon from "@/public/images/about/arrow-right.svg";
-import backgroundImage from "@/public/images/about/final-section-bg.webp";
+import backgroundImage from "@/public/images/about/look-around.jpg";
 
 const AboutFinalSection = () => {
   return (

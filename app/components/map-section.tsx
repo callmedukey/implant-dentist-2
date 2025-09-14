@@ -96,7 +96,7 @@ const MapSection = () => {
             src={mapImage}
             alt="전국 네트워크 지도"
             fill
-            className="object-contain object-top md:object-contain"
+            className="object-contain object-top md:object-contain scale-95"
             unoptimized
           />
         </div>
@@ -222,8 +222,8 @@ const MapSection = () => {
                     index === 0
                       ? "rounded-l"
                       : index === locations.length - 1
-                      ? "rounded-r -ml-[2px]"
-                      : "-ml-[2px]"
+                        ? "rounded-r -ml-[2px]"
+                        : "-ml-[2px]"
                   }`}
                 >
                   <h3
