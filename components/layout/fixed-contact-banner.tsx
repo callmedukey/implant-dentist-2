@@ -49,7 +49,6 @@ const ContactForm = memo(
     formAction,
     isPending,
     state,
-    onAlertOpen,
   }: {
     formData: {
       name: string;
@@ -68,7 +67,6 @@ const ContactForm = memo(
     formAction: (payload: FormData) => void;
     isPending: boolean;
     state: InquiryState;
-    onAlertOpen: () => void;
   }) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -385,7 +383,6 @@ const FixedContactBanner = () => {
                   formAction={mobileFormAction}
                   isPending={mobileIsPending}
                   state={mobileState}
-                  onAlertOpen={() => setShowAlert(true)}
                 />
               </>
             )}
