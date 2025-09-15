@@ -175,7 +175,7 @@ const FixedMenus = () => {
         <div className="flex flex-row items-stretch justify-around h-full">
           {/* Kakao Talk */}
           <a
-            href="https://pf.kakao.com/_FMavxj/chat"
+            href="https://pf.kakao.com/_UxdLFn/chat"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center justify-center flex-1 py-3 hover:bg-gray-50 transition-colors duration-200"
@@ -191,7 +191,7 @@ const FixedMenus = () => {
 
           {/* Naver Reservation */}
           <a
-            href="https://booking.naver.com/booking/13/bizes/860783?tr=bnm"
+            href="https://naver.me/xyd9cLG8"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center justify-center flex-1 py-3 border-l border-gray-200 hover:bg-gray-50 transition-colors duration-200"
@@ -207,7 +207,7 @@ const FixedMenus = () => {
 
           {/* Naver Blog */}
           <a
-            href="https://blog.naver.com/chooneeplant"
+            href="https://blog.naver.com/good2plant"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center justify-center flex-1 py-3 border-l border-gray-200 hover:bg-gray-50 transition-colors duration-200"
