@@ -17,7 +17,7 @@ import digitalTooth from "@/public/images/digital-tooth.webp";
 import toothIcon from "@/public/images/special-implant/insurance-tooth-icon.webp";
 import specialCard2Bg from "@/public/images/special-implant/special-card-2-bg.webp";
 import specialCard3Bg from "@/public/images/special-implant/special-card-3-bg.webp";
-import specialCard4Bg from "@/public/images/special-implant/special-card-4-bg.webp";
+import specialCard4Bg from "@/public/images/special-implant/special-card-4-bg.png";
 import specialCareBg from "@/public/images/special-implant/special-care-bg.png";
 
 export const metadata: Metadata = {
